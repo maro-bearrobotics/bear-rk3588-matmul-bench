@@ -4,10 +4,10 @@ Quick and dirty benchmarking tool to measure the performance of RK3588 NPU.
 
 ## How to use
 
-```c++
-> c++ bench.cpp -o bench -lrknnrt -O3 -std=c++20
-> tasket -c 4-7 ./bench
 ```
-And 2 files should appear.
-* `result.csv` - the actual performance of the matrix multiplcation itself
-* `init.csv` - How long does it take to setup the matrix multiplcation
+g++ bench.cpp -o bench -lrknnrt -lpthread -O3 -std=c++20
+taskset -c 4-7 ./bench 1024 4096 4096 0
+```
+
+To see NPU Utils (different terminal)
+- `sudo watch -n 1 cat /sys/kernel/debug/rknpu/load`
