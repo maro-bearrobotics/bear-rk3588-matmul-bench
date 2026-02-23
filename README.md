@@ -11,6 +11,8 @@ taskset -c 4-7 ./bench 1024 4096 4096 0
 
 ## How to use in robot (C++ 17)
 ```
+g++ bench_robot.cpp -o bench -I/usr/include/rknn -lrknnrt -lpthread -O3 -std=c++17
+
 g++ bench_robot.cpp -o bench -lrknnrt -lpthread -O3 -std=c++17
 
 sudo ./run_stress_test.sh cpu 60     # CPU-only baseline
